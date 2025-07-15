@@ -1,5 +1,5 @@
 import React from "react";
-import OhlcChart from "./lib/OhlcChart";
+import OhlcChart from "./OhlcChart";
 import './App.css';
 
 

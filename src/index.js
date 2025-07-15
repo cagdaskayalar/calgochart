@@ -1,17 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// common components
+export { default as ChartCanvas } from "./lib/ChartCanvas";
+export { default as Chart } from "./lib/Chart";
+export { default as GenericChartComponent } from "./lib/GenericChartComponent";
+export { default as GenericComponent } from "./lib/GenericComponent";
+export { default as BackgroundText } from "./lib/BackgroundText";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export const version = "0.0.1";
