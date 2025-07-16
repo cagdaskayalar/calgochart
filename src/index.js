@@ -1,34 +1,32 @@
 import React from 'react';
-import { render } from 'react-dom';
-import Chart from './App2';
-import { getData } from "./utils"
-import "./App.css"
-import { TypeChooser } from "../src/lib/helper";
-import "../src/stylesheets/another.css";
+import { createRoot } from 'react-dom/client';
+import Chart from './App4';
+import { getData } from "./utils";
+import "./App.css";
 
 class ChartComponent extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
 	componentDidMount() {
 		getData().then(data => {
 			this.setState({ data })
-		})
+		});
 	}
+
 	render() {
-		if (this.state == null) {
-			return <div>Loading...</div>
+		if (!this.state.data) {
+			return <div>Loading...</div>;
 		}
 		return (
-			<>
-				<div>
-					<TypeChooser>
-						{type => <Chart type={type} data={this.state.data} />}
-					</TypeChooser>
-				</div>
-			</>
+			<div>
+				<Chart type="svg" data={this.state.data} />
+			</div>
 		)
 	}
 }
 
-render(
-	<ChartComponent />,
-	document.getElementById("root")
-);
+const root = createRoot(document.getElementById("root"));
+root.render(<ChartComponent />);

@@ -1,32 +1,33 @@
-import { tsvParse, csvParse } from  "d3-dsv";
-import { timeParse } from "d3-time-format";
+import { json } from "d3-fetch";
 
-function parseData(parse) {
-	return function(d) {
-		d.date = parse(d.date);
-		d.open = +d.open;
-		d.high = +d.high;
-		d.low = +d.low;
-		d.close = +d.close;
-		d.volume = +d.volume;
-
-		return d;
-	};
+// JSON dosyasından OHLC verilerini oku ve dönüştür
+export async function fetchOHLCData(url) {
+  const rawData = await json(url);
+  // Dosya paralel objeler şeklinde: Time, Open, High, Low, Close
+  if (rawData.Time && rawData.Open && rawData.High && rawData.Low && rawData.Close) {
+	const keys = Object.keys(rawData.Time);
+	return keys.map(i => ({
+	  date: new Date(rawData.Time[i]),
+	  open: +rawData.Open[i],
+	  high: +rawData.High[i],
+	  low: +rawData.Low[i],
+	  close: +rawData.Close[i]
+	}));
+  }
+  // Eski array veya {data: array} formatı için fallback
+  const arr = Array.isArray(rawData) ? rawData : rawData.data;
+  if (!Array.isArray(arr)) throw new Error("Veri formatı hatalı: Array veya paralel objeler bekleniyor.");
+  return arr.map(d => ({
+	date: new Date(d.Time),
+	open: +d.Open,
+	high: +d.High,
+	low: +d.Low,
+	close: +d.Close
+  }));
 }
 
-
+// YKBNK_Min1.json dosyasından OHLC verisi almak için
 export function getData() {
-	const promiseIntraDayDiscontinuous = fetch("https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT_INTRA_DAY.tsv")
-		.then(response => response.text())
-		.then(data => tsvParse(data, parseData(d => new Date(+d))));
-	return promiseIntraDayDiscontinuous;
+	// Public klasöründen dosya yolu
+	return fetchOHLCData("/data/YKBNK_Min1.json");
 }
-
-//const parseDate = timeParse("%Y-%m-%d");
-
-//export function getData() {
-//	const promiseMSFT = fetch("https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT.tsv")
-//		.then(response => response.text())
-//		.then(data => tsvParse(data, parseData(parseDate)))
-//	return promiseMSFT;
-//}

@@ -114,7 +114,7 @@ OHLCTooltip.defaultProps = {
 			volume: d.volume
 		};
 	},
-	xDisplayFormat: timeFormat("%Y-%m-%d"),
+	xDisplayFormat: timeFormat("%d-%m-%Y %H:%M"),
 	volumeFormat: format(".4s"),
 	percentFormat: format(".2%"),
 	ohlcFormat: format(".2f"),

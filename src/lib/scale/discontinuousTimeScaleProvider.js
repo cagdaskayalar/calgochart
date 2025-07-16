@@ -2,7 +2,19 @@ import { timeFormat, timeFormatDefaultLocale } from "d3-time-format";
 
 import financeDiscontinuousScale from "./financeDiscontinuousScale";
 import { slidingWindow, zipper, identity, isNotDefined } from "../utils";
-import { defaultFormatters, levelDefinition } from "./levels";
+import { levelDefinition, defaultFormatters } from "./levels";
+
+// Turkish locale for d3-time-format
+const trLocale = {
+  dateTime: "%A, %e %B %Y, %X",
+  date: "%d.%m.%Y",
+  time: "%H:%M:%S",
+  periods: ["", ""],
+  days: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
+  shortDays: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
+  months: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+  shortMonths: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
+};
 
 /**
  * Verilen tarih ve seviyelere göre formatlama fonksiyonunu belirler
@@ -137,7 +149,9 @@ export function discontinuousTimeScaleProviderBuilder() {
 
 	let currentFormatters = defaultFormatters;
 
-	const discontinuousTimeScaleProvider = function (data) {
+const discontinuousTimeScaleProvider = function (data) {
+  // Always set Turkish locale before scale creation
+  timeFormatDefaultLocale(trLocale);
 		let index = withIndex;
 
 		if (isNotDefined(index)) {
@@ -202,11 +216,11 @@ export function discontinuousTimeScaleProviderBuilder() {
 		return discontinuousTimeScaleProvider;
 	};
 
-	discontinuousTimeScaleProvider.setLocale = function (locale, formatters = null) {
-		if (locale) timeFormatDefaultLocale(locale);
-		if (formatters) currentFormatters = formatters;
-		return discontinuousTimeScaleProvider;
-	};
+discontinuousTimeScaleProvider.setLocale = function (locale, formatters = null) {
+	if (locale) timeFormatDefaultLocale(locale);
+	if (formatters) currentFormatters = formatters;
+	return discontinuousTimeScaleProvider;
+};
 
 	discontinuousTimeScaleProvider.indexCalculator = function () {
 		return doStuff(realDateAccessor, inputDateAccessor, initialIndex, currentFormatters);

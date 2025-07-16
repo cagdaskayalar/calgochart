@@ -4,12 +4,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { format } from "d3-format";
-import { timeFormat } from "d3-time-format";
 
 import { ChartCanvas, Chart } from "./lib";
-import { BarSeries, CandlestickSeries, OHLCSeries } from "./lib/series";
+import { BarSeries, OHLCSeries } from "./lib/series";
 import { XAxis, YAxis } from "./lib/axes";
-import { CrossHairCursor, CurrentCoordinate, EdgeIndicator, MouseCoordinateX, MouseCoordinateXV2, MouseCoordinateY, PriceCoordinate } from "./lib/coordinates";
+import { CrossHairCursor, EdgeIndicator, MouseCoordinateXV2, MouseCoordinateY } from "./lib/coordinates";
 
 import { discontinuousTimeScaleProvider } from "./lib/scale";
 import { OHLCTooltip } from "./lib/tooltip";
@@ -74,7 +73,7 @@ class OHLCChartWithElderRayIndicator extends React.Component {
 						
 						ticks = "0"
 						
-						showDomain= "false"
+						showDomain= {false}
 						tickStroke="#FFFFFF"
 						stroke="#FFFFFF" />
 					
