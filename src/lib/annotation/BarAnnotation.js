@@ -91,7 +91,7 @@ BarAnnotation.propTypes = {
 BarAnnotation.defaultProps = {
 	className: "react-stockcharts-bar-annotation",
 	opacity: 1,
-	fill: "#000000",
+	fill: "#000250",
 	textAnchor: "middle",
 	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
 	fontSize: 10,

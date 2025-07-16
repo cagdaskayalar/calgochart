@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { hexToRGBA, isDefined } from "../utils";
 
-// Helper fonksiyon: SVG/Canvas için edge koordinat hesaplama
+// Helper fonksiyon: SVG/Canvas iï¿½in edge koordinat hesaplama
 function getEdge(props) {
 	const {
 		coordinate: displayCoordinate, show, type, orient, edgeAt, hideLine,
@@ -136,7 +136,7 @@ EdgeCoordinate.defaultProps = {
 	rectHeight: 20,
 };
 
-// Canvas draw fonksiyonu da deðiþmedi.
+// Canvas draw fonksiyonu da deï¿½iï¿½medi.
 EdgeCoordinate.drawOnCanvasStatic = (ctx, props) => {
 	props = { ...EdgeCoordinate.defaultProps, ...props };
 	const edge = getEdge(props);

@@ -11,7 +11,7 @@ import { getCurrentCharts } from "./utils/ChartDataUtil";
 
 function getTouches(node, event) {
   if (event && event.touches) {
-    // Touch events olduðunda, touches listesini dön
+    // Touch events olduï¿½unda, touches listesini dï¿½n
     return Array.from(event.touches).map(t => [t.clientX, t.clientY]);
   }
   if (typeof window !== 'undefined' && node) {
@@ -33,6 +33,8 @@ class EventCapture extends React.Component {
 
 	componentDidMount() {
 		if (this.node) {
+			// Sadece burada dinle, React tarafÄ±nda onWheel kullanma		
+			this.node.addEventListener('wheel', this.handleWheel, { passive: false });
 			select(this.node)
 				.on(MOUSEENTER, this.handleEnter)
 				.on(MOUSELEAVE, this.handleLeave);
@@ -44,12 +46,13 @@ class EventCapture extends React.Component {
 	}
 	componentWillUnmount() {
 		if (this.node) {
+			this.node.removeEventListener('wheel', this.handleWheel, { passive: false });
 			select(this.node).on(MOUSEENTER, null).on(MOUSELEAVE, null);
 			const win = d3Window(this.node);
 			select(win).on(MOUSEMOVE, null);
 		}
 	}
-	handleEnter = (e) => {  // event parametresi e olarak alýnýyor
+	handleEnter = (e) => {  // event parametresi e olarak alï¿½nï¿½yor
 	const { onMouseEnter } = this.props;
 	this.mouseInside = true;
 	if (!this.state.panInProgress && !this.state.dragInProgress) {
@@ -69,6 +72,7 @@ class EventCapture extends React.Component {
 		onMouseLeave(e);
 	};
 	handleWheel = (e) => {
+		if (e.cancelable) e.preventDefault();
 		const { zoom, onZoom } = this.props;
 		const { panInProgress } = this.state;
 		const yZoom = Math.abs(e.deltaY) > Math.abs(e.deltaX) && Math.abs(e.deltaY) > 0;

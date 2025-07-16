@@ -14,6 +14,7 @@ class PriceCoordinate extends Component {
 		this.renderSVG = this.renderSVG.bind(this);
 		this.drawOnCanvas = this.drawOnCanvas.bind(this);
 	}
+	
 	drawOnCanvas(ctx, moreProps) {
 		const props = helper(this.props, moreProps);
 		drawOnCanvas(ctx, props);
@@ -23,6 +24,7 @@ class PriceCoordinate extends Component {
 		return renderSVG(props);
 	}
 	render() {
+		
 		return <GenericChartComponent
 			clip={false}
 			svgDraw={this.renderSVG}
@@ -71,10 +73,10 @@ PriceCoordinate.defaultProps = {
 	price: 0,
 	dx: 0,
 	arrowWidth: 0,
-	fill: "#BAB8b8",
+	fill: "#af0404ff",
 	opacity: 1,
 	lineOpacity: 0.2,
-	lineStroke: "#000000",
+	lineStroke: "#0083daff",
 	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
 	fontSize: 13,
 	textFill: "#FFFFFF",

@@ -1,23 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { select, event as d3Event, mouse, touches } from "d3-selection";
+import { select, pointer, pointers } from "d3-selection";
 import { mean } from "d3-array";
 
-import {
-	first,
-	last,
-	isDefined,
-	noop,
-	mousePosition,
-	d3Window,
-	MOUSEMOVE,
-	MOUSEUP,
-	TOUCHMOVE,
-	TOUCHEND,
-	touchPosition,
-	getTouchProps,
-	sign,
-} from "../utils";
+import { first, last, isDefined, noop, mousePosition, d3Window, MOUSEMOVE, MOUSEUP, TOUCHMOVE, TOUCHEND, touchPosition, getTouchProps, sign } from "../utils";
 
 class AxisZoomCapture extends Component {
 	constructor(props) {
@@ -100,9 +86,7 @@ class AxisZoomCapture extends Component {
 		if (isDefined(startPosition)) {
 			const { startScale, startXY } = startPosition;
 
-			const mouseXY = this.mouseInteraction
-				? mouse(this.node)
-				: touches(this.node)[0];
+			const mouseXY = this.mouseInteraction ? pointer(this.node) : pointers(this.node)[0];
 
 			const diff = getMouseDelta(startXY, mouseXY);
 			const center = mean(startScale.range());
@@ -122,13 +106,12 @@ class AxisZoomCapture extends Component {
 		}
 	};
 
-	handleDragEnd = () => {
+	handleDragEnd = (e) => { // event'i parametre olarak al
 		if (!this.dragHappened) {
 			if (this.clicked) {
-				const e = d3Event;
 				const mouseXY = this.mouseInteraction
-					? mouse(this.node)
-					: touches(this.node)[0];
+					? pointer(e, this.node) // e parametresi ile çağır
+					: pointers(e, this.node)[0];
 				const { onDoubleClick } = this.props;
 
 				if (onDoubleClick) onDoubleClick(mouseXY, e);
@@ -148,6 +131,7 @@ class AxisZoomCapture extends Component {
 
 		this.setState({ startPosition: null });
 	};
+
 
 	render() {
 		const { bg, className, zoomCursorClassName } = this.props;
