@@ -45,7 +45,7 @@ function EdgeCoordinate(props) {
 	if (isDefined(line)) {
 		lineEl = (
 			<line
-				className="react-stockcharts-cross-hair"
+				className="calgo-stockcharts-cross-hair"
 				opacity={line.opacity}
 				stroke={line.stroke}
 				x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2}
@@ -62,7 +62,7 @@ function EdgeCoordinate(props) {
 			orient === "left" || orient === "right" ? (
 				<g transform={`translate(${coordinateBase.edgeXRect},${coordinateBase.edgeYRect})`}>
 					<path
-						className="react-stockchart-text-background"
+						className="calgo-stockchart-text-background"
 						d={path}
 						fill={coordinateBase.fill}
 						opacity={coordinateBase.opacity}
@@ -70,7 +70,7 @@ function EdgeCoordinate(props) {
 				</g>
 			) : (
 				<rect
-					className="react-stockchart-text-background"
+					className="calgo-stockchart-text-background"
 					x={coordinateBase.edgeXRect}
 					y={coordinateBase.edgeYRect}
 					height={rectHeight}
@@ -121,7 +121,7 @@ EdgeCoordinate.propTypes = {
 };
 
 EdgeCoordinate.defaultProps = {
-	className: "react-stockcharts-edgecoordinate",
+	className: "calgo-stockcharts-edgecoordinate",
 	orient: "left",
 	hideLine: false,
 	fill: "#8a8a8a",

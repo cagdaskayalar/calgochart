@@ -6,7 +6,7 @@ import GenericChartComponent from "../GenericChartComponent";
 import ToolTipText from "./ToolTipText";
 import ToolTipTSpanLabel from "./ToolTipTSpanLabel";
 
-// ---- Tekil Tooltip satýrý (Fonksiyonel!) ----
+// ---- Tekil Tooltip satï¿½rï¿½ (Fonksiyonel!) ----
 function SingleTooltip({
 	origin, yLabel, yValue, labelFill, valueFill, withShape, fontFamily, fontSize,
 	layout, onClick, options, forChart
@@ -72,7 +72,7 @@ SingleTooltip.defaultProps = {
 
 // ---- Grup Tooltip ana component (Fonksiyonel) ----
 function GroupTooltip({
-	className = "react-stockcharts-tooltip react-stockcharts-group-tooltip",
+	className = "calgo-stockcharts-tooltip calgo-stockcharts-group-tooltip",
 	layout = "horizontal",
 	position,
 	displayFormat = format(".2f"),
@@ -176,7 +176,7 @@ GroupTooltip.propTypes = {
 	),
 };
 GroupTooltip.defaultProps = {
-	className: "react-stockcharts-tooltip react-stockcharts-group-tooltip",
+	className: "calgo-stockcharts-tooltip calgo-stockcharts-group-tooltip",
 	layout: "horizontal",
 	displayFormat: format(".2f"),
 	displayValuesFor: displayValuesFor,

@@ -137,11 +137,11 @@ class AxisZoomCapture extends Component {
 		const { bg, className, zoomCursorClassName } = this.props;
 		const cursor = isDefined(this.state.startPosition)
 			? zoomCursorClassName
-			: "react-stockcharts-default-cursor";
+			: "calgo-stockcharts-default-cursor";
 
 		return (
 			<rect
-				className={`react-stockcharts-enable-interaction ${cursor} ${className || ""}`}
+				className={`calgo-stockcharts-enable-interaction ${cursor} ${className || ""}`}
 				ref={this.saveNode}
 				x={bg.x}
 				y={bg.y}

@@ -63,7 +63,7 @@ const HoverTooltip = ({
 					fill={bgFill}
 					opacity={bgOpacity}
 				/>
-				<g className="react-stockcharts-tooltip-content" transform={`translate(${x},${y})`}>
+				<g className="calgo-stockcharts-tooltip-content" transform={`translate(${x},${y})`}>
 					{backgroundShapeSVG({ fill, stroke, opacity }, bgShape)}
 					{tooltipSVG({ fontFamily, fontSize, fontFill }, content)}
 				</g>

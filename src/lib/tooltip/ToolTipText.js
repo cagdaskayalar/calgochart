@@ -1,9 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ToolTipText = ({ fontFamily, fontSize, children, ...rest }) => (
+/**
+ * ToolTipText
+ * Tooltiplerde ortak kullanılan bir <text> wrapper'ı.
+ * @param {string} fontFamily - Yazı fontu (default: Helvetica Neue, Helvetica, Arial, sans-serif)
+ * @param {number} fontSize - Yazı boyutu (default: 11)
+ * @param {ReactNode} children - İçerik
+ * @param {object} rest - Diğer SVG <text> props'ları
+ */
+const ToolTipText = ({
+	fontFamily = "Helvetica Neue, Helvetica, Arial, sans-serif",
+	fontSize = 11,
+	children,
+	...rest
+}) => (
 	<text
-		className="react-stockcharts-tooltip"
+		className="calgo-stockcharts-tooltip"
 		fontFamily={fontFamily}
 		fontSize={fontSize}
 		{...rest}
@@ -13,14 +26,9 @@ const ToolTipText = ({ fontFamily, fontSize, children, ...rest }) => (
 );
 
 ToolTipText.propTypes = {
-	fontFamily: PropTypes.string.isRequired,
-	fontSize: PropTypes.number.isRequired,
+	fontFamily: PropTypes.string,
+	fontSize: PropTypes.number,
 	children: PropTypes.node.isRequired,
-};
-
-ToolTipText.defaultProps = {
-	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
-	fontSize: 11,
 };
 
 export default ToolTipText;

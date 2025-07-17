@@ -1,17 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { select, pointer } from "d3-selection";
-import {
-	isDefined, mousePosition, touchPosition, getTouchProps,
-	d3Window,
-	MOUSEMOVE, MOUSEUP, MOUSEENTER, MOUSELEAVE, TOUCHMOVE, TOUCHEND, noop
-} from "./utils";
+import { isDefined, mousePosition, touchPosition, getTouchProps, d3Window, MOUSEMOVE, MOUSEUP, MOUSEENTER, MOUSELEAVE, TOUCHMOVE, TOUCHEND, noop } from "./utils";
 import { getCurrentCharts } from "./utils/ChartDataUtil";
 
 
 function getTouches(node, event) {
   if (event && event.touches) {
-    // Touch events oldu�unda, touches listesini d�n
+    // Touch events oldugunda, touches listesini don
     return Array.from(event.touches).map(t => [t.clientX, t.clientY]);
   }
   if (typeof window !== 'undefined' && node) {
@@ -52,7 +48,7 @@ class EventCapture extends React.Component {
 			select(win).on(MOUSEMOVE, null);
 		}
 	}
-	handleEnter = (e) => {  // event parametresi e olarak al�n�yor
+	handleEnter = (e) => {  // event parametresi e olarak alınıyor
 	const { onMouseEnter } = this.props;
 	this.mouseInside = true;
 	if (!this.state.panInProgress && !this.state.dragInProgress) {
@@ -331,8 +327,8 @@ class EventCapture extends React.Component {
 		const className = this.state.cursorOverrideClass != null
 			? this.state.cursorOverrideClass
 			: !useCrossHairStyleCursor ? "" : this.state.panInProgress
-				? "react-stockcharts-grabbing-cursor"
-				: "react-stockcharts-crosshair-cursor";
+				? "calgo-stockcharts-grabbing-cursor"
+				: "calgo-stockcharts-crosshair-cursor";
 
 		const interactionProps = disableInteraction || {
 			onWheel: this.handleWheel,

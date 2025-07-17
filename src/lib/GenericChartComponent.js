@@ -1,8 +1,9 @@
+//src/lib/GenericChartComponent.js
 import PropTypes from "prop-types";
 import GenericComponent from "./GenericComponent";
 import { isDefined, find } from "./utils";
 
-// Hangi event tiplerinde her zaman true dönecek kontrol:
+// Hangi event tiplerinde her zaman true dï¿½necek kontrol:
 const ALWAYS_TRUE_TYPES = ["drag", "dragend"];
 
 class GenericChartComponent extends GenericComponent {
@@ -15,7 +16,7 @@ class GenericChartComponent extends GenericComponent {
 		this.preEvaluate = this.preEvaluate.bind(this);
 	}
 
-	// Modern React: sadece didMount ve willUnmount býrakýyoruz
+	// Modern React: sadece didMount ve willUnmount bÄ±rakÄ±yoruz
 	componentDidMount() {
 		if (super.componentDidMount) super.componentDidMount();
 	}
@@ -81,7 +82,7 @@ class GenericChartComponent extends GenericComponent {
 	}
 
 	preEvaluate(/* type, moreProps */) {
-		// Opsiyonel, override etmek için burada boþ býrakýyoruz.
+		// Opsiyonel, override etmek icin burada bos bÄ±rakÄ±yoruz.
 	}
 
 	shouldTypeProceed(type, moreProps) {
@@ -102,7 +103,7 @@ class GenericChartComponent extends GenericComponent {
 	}
 }
 
-// PropTypes ve DefaultProps, GenericComponent'ten miras alýr
+// PropTypes ve DefaultProps, GenericComponent'ten miras alï¿½r
 GenericChartComponent.propTypes = GenericComponent.propTypes;
 GenericChartComponent.defaultProps = GenericComponent.defaultProps;
 

@@ -50,43 +50,43 @@ function shouldResetChart(thisProps, nextProps) {
 
 function getCursorStyle() {
 	const tooltipStyle = `
-	.react-stockcharts-grabbing-cursor {
+	.calgo-stockcharts-grabbing-cursor {
 		pointer-events: all;
 		cursor: -moz-grabbing;
 		cursor: -webkit-grabbing;
 		cursor: grabbing;
 	}
-	.react-stockcharts-crosshair-cursor {
+	.calgo-stockcharts-crosshair-cursor {
 		pointer-events: all;
 		cursor: crosshair;
 	}
-	.react-stockcharts-tooltip-hover {
+	.calgo-stockcharts-tooltip-hover {
 		pointer-events: all;
 		cursor: pointer;
 	}
-	.react-stockcharts-avoid-interaction {
+	.calgo-stockcharts-avoid-interaction {
 		pointer-events: none;
 	}
-	.react-stockcharts-enable-interaction {
+	.calgo-stockcharts-enable-interaction {
 		pointer-events: all;
 	}
-	.react-stockcharts-tooltip {
+	.calgo-stockcharts-tooltip {
 		pointer-events: all;
 		cursor: pointer;
 	}
-	.react-stockcharts-default-cursor {
+	.calgo-stockcharts-default-cursor {
 		cursor: default;
 	}
-	.react-stockcharts-move-cursor {
+	.calgo-stockcharts-move-cursor {
 		cursor: move;
 	}
-	.react-stockcharts-pointer-cursor {
+	.calgo-stockcharts-pointer-cursor {
 		cursor: pointer;
 	}
-	.react-stockcharts-ns-resize-cursor {
+	.calgo-stockcharts-ns-resize-cursor {
 		cursor: ns-resize;
 	}
-	.react-stockcharts-ew-resize-cursor {
+	.calgo-stockcharts-ew-resize-cursor {
 		cursor: ew-resize;
 	}`;
 	return (<style type="text/css">{tooltipStyle}</style>);
@@ -1113,7 +1113,7 @@ class ChartCanvas extends Component {
 							onPanEnd={this.handlePanEnd}
 						/>
 
-						<g className="react-stockcharts-avoid-interaction">
+						<g className="calgo-stockcharts-avoid-interaction">
 							{this.props.children}
 						</g>
 					</g>
@@ -1188,7 +1188,7 @@ ChartCanvas.defaultProps = {
 	type: "hybrid",
 	pointsPerPxThreshold: 2,
 	minPointsPerPxThreshold: 1 / 100,
-	className: "react-stockchart",
+	className: "calgo-stockchart",
 	zIndex: 1,
 	xExtents: [min, max],
 	postCalculator: identity,

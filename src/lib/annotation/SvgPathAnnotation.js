@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { functor } from "../utils";
 
 function SvgPathAnnotation({
-	className = "react-stockcharts-svgpathannotation",
+	className = "calgo-stockcharts-svgpathannotation",
 	path,
 	x,
 	y,
@@ -53,7 +53,7 @@ SvgPathAnnotation.propTypes = {
 };
 
 SvgPathAnnotation.defaultProps = {
-	className: "react-stockcharts-svgpathannotation",
+	className: "calgo-stockcharts-svgpathannotation",
 	opacity: 1,
 	x: ({ xScale, xAccessor, datum }) => xScale(xAccessor(datum)),
 };

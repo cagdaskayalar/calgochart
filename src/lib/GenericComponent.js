@@ -1,3 +1,4 @@
+// src/lib/GenericComponent.js
 import React from "react";
 import PropTypes from "prop-types";
 import { isNotDefined, isDefined, noop, functor, identity } from "./utils";
@@ -147,7 +148,7 @@ class GenericComponent extends React.Component {
 					amIOnTop(this.suscriberId) &&
 					isDefined(this.props.onHover)
 				) {
-					setCursorClass("react-stockcharts-pointer-cursor");
+					setCursorClass("calgo-stockcharts-pointer-cursor");
 					this.iSetTheCursorClass = true;
 				} else if (
 					this.moreProps.hovering &&
@@ -367,6 +368,6 @@ GenericComponent.contextTypes = {
 
 export default GenericComponent;
 
-// Canvas yardýmcýlarý
+// Canvas yardï¿½mcï¿½larï¿½
 export function getAxisCanvas(contexts) { return contexts.axes; }
 export function getMouseCanvas(contexts) { return contexts.mouseCoord; }

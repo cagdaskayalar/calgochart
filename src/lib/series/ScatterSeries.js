@@ -49,7 +49,7 @@ ScatterSeries.propTypes = {
 };
 
 ScatterSeries.defaultProps = {
-	className: "react-stockcharts-scatter",
+	className: "calgo-stockcharts-scatter",
 };
 
 // ---- Helper Functions ----

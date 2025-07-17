@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { functor } from "../utils";
 
 function LabelAnnotation({
-	className = "react-stockcharts-labelannotation",
+	className = "calgo-stockcharts-labelannotation",
 	text = "",
 	textAnchor = "middle",
 	fontFamily = "Helvetica Neue, Helvetica, Arial, sans-serif",
@@ -72,7 +72,7 @@ LabelAnnotation.propTypes = {
 };
 
 LabelAnnotation.defaultProps = {
-	className: "react-stockcharts-labelannotation",
+	className: "calgo-stockcharts-labelannotation",
 	textAnchor: "middle",
 	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
 	fontSize: 12,

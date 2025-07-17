@@ -72,7 +72,7 @@ EdgeIndicator.propTypes = {
 };
 
 EdgeIndicator.defaultProps = {
-	className: "react-stockcharts-edgeindicator",
+	className: "calgo-stockcharts-edgeindicator",
 
 	type: "horizontal",
 	orient: "left",

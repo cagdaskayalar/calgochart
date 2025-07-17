@@ -40,7 +40,7 @@ AxisLine.propTypes = {
 	className: PropTypes.string,
 	shapeRendering: PropTypes.string,
 	orient: PropTypes.string.isRequired,
-	scale: PropTypes.func, // Artýk kullanýlmýyor, gerekirse kaldýrabilirsin
+	scale: PropTypes.func, // Artï¿½k kullanï¿½lmï¿½yor, gerekirse kaldï¿½rabilirsin
 	outerTickSize: PropTypes.number,
 	fill: PropTypes.string,
 	stroke: PropTypes.string,
@@ -50,7 +50,7 @@ AxisLine.propTypes = {
 };
 
 AxisLine.defaultProps = {
-	className: "react-stockcharts-axis-line",
+	className: "calgo-stockcharts-axis-line",
 	shapeRendering: "crispEdges",
 	outerTickSize: 0,
 	fill: "none",

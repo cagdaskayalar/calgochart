@@ -86,7 +86,7 @@ SingleValueTooltip.defaultProps = {
 	displayValuesFor,
 	xAccessor: noop,
 	yAccessor: identity,
-	className: "react-stockcharts-tooltip",
+	className: "calgo-stockcharts-tooltip",
 };
 
 export default SingleValueTooltip;

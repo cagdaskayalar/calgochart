@@ -24,7 +24,7 @@ class Annotate extends Component {
 		const data = helper(this.props, plotData);
 
 		return (
-			<g className={`react-stockcharts-enable-interaction ${className}`}>
+			<g className={`calgo-stockcharts-enable-interaction ${className}`}>
 				{data.map((d, idx) => <Annotation key={idx}
 					{...usingProps}
 					xScale={xScale}
@@ -45,7 +45,7 @@ Annotate.propTypes = {
 };
 
 Annotate.defaultProps = {
-	className: "react-stockcharts-annotate react-stockcharts-default-cursor",
+	className: "calgo-stockcharts-annotate calgo-stockcharts-default-cursor",
 };
 
 function helper({ when }, plotData) {

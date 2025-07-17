@@ -89,7 +89,7 @@ BarAnnotation.propTypes = {
 };
 
 BarAnnotation.defaultProps = {
-	className: "react-stockcharts-bar-annotation",
+	className: "calgo-stockcharts-bar-annotation",
 	opacity: 1,
 	fill: "#000250",
 	textAnchor: "middle",

@@ -14,7 +14,7 @@ export function renderSVG(props) {
 
 	if (isDefined(edge.line)) {
 		line = <line
-			className="react-stockcharts-cross-hair" opacity={edge.line.opacity} stroke={edge.line.stroke}
+			className="calgo-stockcharts-cross-hair" opacity={edge.line.opacity} stroke={edge.line.stroke}
 			x1={edge.line.x1} y1={edge.line.y1}
 			x2={edge.line.x2} y2={edge.line.y2} />;
 	}
@@ -28,11 +28,11 @@ export function renderSVG(props) {
 
 		coordinateBase = edge.orient === "left" || edge.orient === "right"
 			? <g transform={`translate(${edge.coordinateBase.edgeXRect},${edge.coordinateBase.edgeYRect})`}>
-				<path d={path} key={1} className="react-stockchart-text-background"
+				<path d={path} key={1} className="calgo-stockchart-text-background"
 					height={rectHeight} width={rectWidth}
 					fill={edge.coordinateBase.fill} opacity={edge.coordinateBase.opacity} />
 			</g>
-			: <rect key={1} className="react-stockchart-text-background"
+			: <rect key={1} className="calgo-stockchart-text-background"
 				x={edge.coordinateBase.edgeXRect}
 				y={edge.coordinateBase.edgeYRect}
 				height={rectHeight} width={rectWidth}

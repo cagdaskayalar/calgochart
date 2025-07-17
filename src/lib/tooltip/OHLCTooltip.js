@@ -150,7 +150,7 @@ function defaultDisplay(props, moreProps, itemsToDisplay) {
 	} = itemsToDisplay;
 	return (
 		<g
-			className={`react-stockcharts-tooltip-hover ${className}`}
+			className={`calgo-stockcharts-tooltip-hover ${className}`}
 			transform={`translate(${x}, ${y})`}
 			onClick={onClick}
 		>

@@ -42,7 +42,7 @@ class BackgroundText extends PureComponent {
 	}
 }
 
-// Statik canvas çizim fonksiyonu
+// Statik canvas cizim fonksiyonu
 BackgroundText.drawOnCanvas = (ctx, props, { interval }, getText) => {
 	ctx.clearRect(-1, -1, ctx.canvas.width + 2, ctx.canvas.height + 2);
 	ctx.save();

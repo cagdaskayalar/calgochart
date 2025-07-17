@@ -54,9 +54,9 @@ CandlestickSeries.propTypes = {
 };
 
 CandlestickSeries.defaultProps = {
-	className: "react-stockcharts-candlestick",
-	wickClassName: "react-stockcharts-candlestick-wick",
-	candleClassName: "react-stockcharts-candlestick-candle",
+	className: "calgo-stockcharts-candlestick",
+	wickClassName: "calgo-stockcharts-candlestick-wick",
+	candleClassName: "calgo-stockcharts-candlestick-candle",
 	yAccessor: d => ({ open: d.open, high: d.high, low: d.low, close: d.close }),
 	classNames: d => d.close > d.open ? "up" : "down",
 	width: plotDataLengthBarWidth,
@@ -110,7 +110,7 @@ function getCandlesSVG(props, candleData) {
 	});
 }
 
-// Tüm canvas çizimi tek fonksiyonda (yukarýdan aldý)
+// Tï¿½m canvas ï¿½izimi tek fonksiyonda (yukarï¿½dan aldï¿½)
 function drawOnCanvasHelper(ctx, props, moreProps) {
 	const { opacity, candleStrokeWidth } = props;
 	const { xScale, chartConfig: { yScale }, plotData, xAccessor } = moreProps;
@@ -165,7 +165,7 @@ function drawOnCanvasHelper(ctx, props, moreProps) {
 	});
 }
 
-// Yalnýzca clean ve hýzlý data hazýrlama
+// Yalnï¿½zca clean ve hï¿½zlï¿½ data hazï¿½rlama
 function getCandleData(props, xAccessor, xScale, yScale, plotData) {
 	const wickStroke = functor(props.wickStroke);
 	const className = functor(props.classNames);
