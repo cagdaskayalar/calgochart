@@ -6,122 +6,78 @@
 // It handles rendering logic, event handling, and context management for charts.
 // GenericChartComponent.js
 
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import GenericComponent from "./GenericComponent";
-import { isDefined, find } from "./utils";
+import { getMouseCanvas } from "./GenericComponent";
+import { ChartCanvasContext } from "./ChartCanvas";
 
-// Hangi event tiplerinde her zaman true d�necek kontrol:
-const ALWAYS_TRUE_TYPES = ["drag", "dragend"];
+/**
+ * GenericChartComponent, GenericComponent'i sarmalayarak grafiklere özel canvas çizim davranışı kazandırır.
+ * Canvas çizimi öncesinde grafiğin orijin noktasına göre konumlama ve kırpma işlemleri yapar.
+ */
+function GenericChartComponent(props) {
+  const chartCanvasContext = useContext(ChartCanvasContext);
+  const { margin, ratio } = chartCanvasContext;
 
-class GenericChartComponent extends GenericComponent {
-	constructor(props, context) {
-		super(props, context);
+  // Canvas çiziminden önce uygulanacak işlemler (context kaydet, ölçek, orijin ayarı, kenar kırpma)
+  const preCanvasDraw = (ctx, moreProps) => {
+    ctx.save();
+    const { chartConfig } = moreProps;
+    const { width, height, origin } = chartConfig;
+    // Canvas orijinini hesapla (global pixel ölçülerinde)
+    const canvasOriginX = 0.5 * ratio + origin[0] + margin.left;
+    const canvasOriginY = 0.5 * ratio + origin[1] + margin.top;
+    // Önce tam ölçekli transform ve ölçek ayarı
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(ratio, ratio);
+    // edgeClip aktif ise grafiğin sınırları dışına taşan çizimleri kliple (ekstra pay ile)
+    if (props.edgeClip) {
+      ctx.beginPath();
+      ctx.rect(
+        -1,
+        canvasOriginY - 10,
+        width + margin.left + margin.right + 1,
+        height + 20
+      );
+      ctx.clip();
+    }
+    // Grafiğin orijinine kaydır
+    ctx.translate(canvasOriginX, canvasOriginY);
+    // clip aktif ise grafik alanı dışını kliple
+    if (props.clip) {
+      ctx.beginPath();
+      ctx.rect(-1, -1, width + 1, height + 1);
+      ctx.clip();
+    }
+  };
 
-		this.preCanvasDraw = this.preCanvasDraw.bind(this);
-		this.postCanvasDraw = this.postCanvasDraw.bind(this);
-		this.shouldTypeProceed = this.shouldTypeProceed.bind(this);
-		this.preEvaluate = this.preEvaluate.bind(this);
-	}
+  // Canvas çiziminden sonra uygulanacak işlemler (context durumunu geri yükle)
+  const postCanvasDraw = (ctx, moreProps) => {
+    ctx.restore();
+  };
 
-	// Modern React: sadece didMount ve willUnmount bırakıyoruz
-	componentDidMount() {
-		if (super.componentDidMount) super.componentDidMount();
-	}
-	componentWillUnmount() {
-		if (super.componentWillUnmount) super.componentWillUnmount();
-	}
+  // GenericComponent'e özel canvas çizim fonksiyonu ve diğer override prop'larını hazırla
+  const overrideProps = {
+    canvasDraw: (ctx, moreProps) => {
+      if (props.canvasDraw) {
+        // Grafik orijinine göre çizimden önce ve sonra gerekli işlemleri uygula
+        preCanvasDraw(ctx, moreProps);
+        props.canvasDraw(ctx, moreProps);
+        postCanvasDraw(ctx, moreProps);
+      }
+    },
+    canvasToDraw: props.canvasToDraw || getMouseCanvas,
+    // Eğer drawOn belirtilmemişse, grafik bileşenleri için yaygın tetikleyici olaylar kullan
+    drawOn: props.drawOn || ["pan", "mousemove", "drag", "dragend"],
+  };
 
-	preCanvasDraw(ctx, moreProps) {
-		if (super.preCanvasDraw) super.preCanvasDraw(ctx, moreProps);
-		ctx.save();
-		const { margin, ratio } = this.context;
-		const { chartConfig } = moreProps;
-
-		const canvasOriginX = (0.5 * ratio) + chartConfig.origin[0] + margin.left;
-		const canvasOriginY = (0.5 * ratio) + chartConfig.origin[1] + margin.top;
-
-		const { width, height } = chartConfig;
-		const { clip, edgeClip } = this.props;
-
-		ctx.setTransform(1, 0, 0, 1, 0, 0);
-		ctx.scale(ratio, ratio);
-
-		if (edgeClip) {
-			ctx.beginPath();
-			ctx.rect(-1, canvasOriginY - 10, width + margin.left + margin.right + 1, height + 20);
-			ctx.clip();
-		}
-
-		ctx.translate(canvasOriginX, canvasOriginY);
-
-		if (clip) {
-			ctx.beginPath();
-			ctx.rect(-1, -1, width + 1, height + 1);
-			ctx.clip();
-		}
-	}
-
-	postCanvasDraw(ctx, moreProps) {
-		if (super.postCanvasDraw) super.postCanvasDraw(ctx, moreProps);
-		ctx.restore();
-	}
-
-	updateMoreProps(moreProps) {
-		if (super.updateMoreProps) super.updateMoreProps(moreProps);
-		const { chartConfig: chartConfigList } = moreProps;
-
-		if (chartConfigList && Array.isArray(chartConfigList)) {
-			const { chartId } = this.context;
-			const chartConfig = find(chartConfigList, each => each.id === chartId);
-			this.moreProps.chartConfig = chartConfig;
-		}
-		if (isDefined(this.moreProps.chartConfig)) {
-			const { origin: [ox, oy] } = this.moreProps.chartConfig;
-			if (isDefined(moreProps.mouseXY)) {
-				const { mouseXY: [x, y] } = moreProps;
-				this.moreProps.mouseXY = [x - ox, y - oy];
-			}
-			if (isDefined(moreProps.startPos)) {
-				const { startPos: [x, y] } = moreProps;
-				this.moreProps.startPos = [x - ox, y - oy];
-			}
-		}
-	}
-
-	preEvaluate(/* type, moreProps */) {
-		// Opsiyonel, override etmek icin burada bos bırakıyoruz.
-	}
-
-	shouldTypeProceed(type, moreProps) {
-		if (
-			(type === "mousemove" || type === "click") &&
-			this.props.disablePan
-		) {
-			return true;
-		}
-		if (
-			ALWAYS_TRUE_TYPES.indexOf(type) === -1 &&
-			isDefined(moreProps) &&
-			isDefined(moreProps.currentCharts)
-		) {
-			return (moreProps.currentCharts.indexOf(this.context.chartId) > -1);
-		}
-		return true;
-	}
+  // GenericComponent'i override edilmiş prop'larla render et
+  return <GenericComponent {...props} {...overrideProps} />;
 }
 
-// PropTypes ve DefaultProps, GenericComponent'ten miras al�r
+// GenericChartComponent, GenericComponent ile aynı prop tiplerini ve varsayılanları kullanır
 GenericChartComponent.propTypes = GenericComponent.propTypes;
 GenericChartComponent.defaultProps = GenericComponent.defaultProps;
 
-// Modern context (legacy ile uyumlu):
-GenericChartComponent.contextTypes = {
-	...GenericComponent.contextTypes,
-	canvasOriginX: PropTypes.number,
-	canvasOriginY: PropTypes.number,
-	chartId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-	chartConfig: PropTypes.object.isRequired,
-	ratio: PropTypes.number.isRequired,
-};
-
 export default GenericChartComponent;
+
