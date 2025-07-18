@@ -1,55 +1,68 @@
-// src/lib/CanvasContainer.js
-// This module defines a CanvasContainer component that manages multiple canvas elements for rendering charts.
-// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
-// CanvasContainer.js
-
-import React from "react";
+import React, { forwardRef, useRef, useImperativeHandle } from "react";
 import PropTypes from "prop-types";
 import { isDefined, getLogger } from "./utils";
 
 const log = getLogger("CanvasContainer");
 
-class CanvasContainer extends React.Component {
-	drawCanvas = {};
+const CanvasContainer = forwardRef((props, ref) => {
+  const { width, height, type, zIndex, ratio } = props;
+  const drawCanvas = useRef({});
 
-	setDrawCanvas = node => {
-		if (isDefined(node))
-			this.drawCanvas[node.id] = node.getContext("2d");
-		else
-			this.drawCanvas = {};
-	};
+  // Ref'lenen node'ları sakla veya temizle
+  const setDrawCanvas = node => {
+    if (node) {
+      drawCanvas.current[node.id] = node.getContext("2d");
+    } else {
+      drawCanvas.current = {};
+    }
+  };
 
-	getCanvasContexts = () => {
-		if (isDefined(this.drawCanvas.axes)) {
-			return this.drawCanvas;
-		}
-	};
+  // Ebeveynden erişilmek üzere getCanvasContexts fonksiyonunu sağlayın
+  useImperativeHandle(ref, () => ({
+    getCanvasContexts: () => {
+      if (isDefined(drawCanvas.current.axes)) {
+        return drawCanvas.current;
+      }
+    }
+  }));
 
-	render() {
-		const { height, width, type, zIndex, ratio } = this.props;
-		if (type === "svg") return null;
+  if (type === "svg") return null;
 
-		log("using ratio", ratio);
+  log("using ratio", ratio);
 
-		return (
-			<div style={{ position: "absolute", zIndex }}>
-				<canvas id="bg" ref={this.setDrawCanvas} width={width * ratio} height={height * ratio}
-					style={{ position: "absolute", width, height }} />
-				<canvas id="axes" ref={this.setDrawCanvas} width={width * ratio} height={height * ratio}
-					style={{ position: "absolute", width, height }} />
-				<canvas id="mouseCoord" ref={this.setDrawCanvas} width={width * ratio} height={height * ratio}
-					style={{ position: "absolute", width, height }} />
-			</div>
-		);
-	}
-}
+  return (
+    <div style={{ position: "absolute", zIndex }}>
+      <canvas
+        id="bg"
+        ref={setDrawCanvas}
+        width={width * ratio}
+        height={height * ratio}
+        style={{ position: "absolute", width, height }}
+      />
+      <canvas
+        id="axes"
+        ref={setDrawCanvas}
+        width={width * ratio}
+        height={height * ratio}
+        style={{ position: "absolute", width, height }}
+      />
+      <canvas
+        id="mouseCoord"
+        ref={setDrawCanvas}
+        width={width * ratio}
+        height={height * ratio}
+        style={{ position: "absolute", width, height }}
+      />
+    </div>
+  );
+});
 
 CanvasContainer.propTypes = {
-	width: PropTypes.number.isRequired,
-	height: PropTypes.number.isRequired,
-	type: PropTypes.string.isRequired,
-	zIndex: PropTypes.number,
-	ratio: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
+  zIndex: PropTypes.number,
+  ratio: PropTypes.number.isRequired,
 };
 
 export default CanvasContainer;

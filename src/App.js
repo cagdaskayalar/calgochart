@@ -21,7 +21,7 @@ class CandleStickChartForDiscontinuousIntraDay extends React.Component {
 		const { type, data: initialData, width, ratio } = this.props;
 
 		const xScaleProvider = discontinuousTimeScaleProvider
-			.inputDateAccessor(d => d.date);
+			.inputDateAccessor(data => data.date);
 		const {
 			data,
 			xScale,

@@ -21,14 +21,14 @@ function OHLCChartLoadMore(props) {
 	const height = 650;
 
 	const { type: svg, data: initialData, width, ratio, gridProps } = props;
-
+	console.log("initialData", initialData);
 	const calculatedData = initialData.map((d, index) => {
             return {
 			   ...d,
             };
           });
 
-	const xScaleProvider = discontinuousTimeScaleProvider.inputDateAccessor((d) => new Date(d.date));
+	const xScaleProvider = discontinuousTimeScaleProvider.inputDateAccessor((d) => d.date);
 	const { data, xScale, xAccessor, displayXAccessor} = xScaleProvider(calculatedData);
 		
 	const margin = { left: 70, right: 70, top: 20, bottom: 30 };
