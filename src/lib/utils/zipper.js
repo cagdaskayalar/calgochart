@@ -1,3 +1,7 @@
+// src/lib/utils/zipper.js
+// This module provides an extension to d3.zip that allows combining arrays with a custom function.
+// zipper.js
+
 /* an extension to d3.zip so we call a function instead of an array */
 import { min } from "d3-array";
 import identity from "./identity";

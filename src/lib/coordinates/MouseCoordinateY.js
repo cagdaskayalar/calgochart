@@ -1,4 +1,7 @@
-
+// src/lib/coordinates/MouseCoordinateY.js
+// This module defines a MouseCoordinateY component that displays the Y coordinate of the mouse position on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.	
+// MouseCoordinateY.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

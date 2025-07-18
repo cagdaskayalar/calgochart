@@ -1,3 +1,8 @@
+// src/lib/coordinates/CurrentCoordinate.js
+// This module defines a CurrentCoordinate component that displays a circle at the current mouse position on a chart.
+// It supports both SVG and Canvas rendering, showing the Y value of the current item.
+// CurrentCoordinate.js
+
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import GenericChartComponent, { getMouseCanvas } from "../GenericComponent";

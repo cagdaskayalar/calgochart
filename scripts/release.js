@@ -1,3 +1,8 @@
+// scripts/release.js
+// This script prepares the package for release by modifying the package.json file.
+// It removes development dependencies and scripts, and sets the main entry points for the package.
+// release.js
+
 var fs = require("fs");
 var path = require("path");
 

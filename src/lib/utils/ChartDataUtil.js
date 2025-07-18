@@ -1,3 +1,8 @@
+// src/lib/utils/ChartDataUtil.js
+// This module provides utility functions for handling chart data, including calculating chart origins, dimensions, and updating chart configurations.
+// It also includes functions for determining the current chart based on mouse position and updating Y scales based on data extents.
+// ChartDataUtil.js
+
 import React from "react";
 import { extent } from "d3-array";
 import flattenDeep from "lodash.flattendeep";
@@ -89,7 +94,7 @@ export function getNewChartConfig(innerDimension, children, existingChartConfig 
 	}).filter(isDefined);
 }
 
-// Mouse Y konumuna göre hangi chart aktif (ör: pan/zoom/hover)
+// Mouse Y konumuna gï¿½re hangi chart aktif (ï¿½r: pan/zoom/hover)
 export const getCurrentCharts = (chartConfig, mouseXY) =>
 	chartConfig
 		.filter(eachConfig => {
@@ -122,7 +127,7 @@ function yDomainFromYExtents(yExtents, yScale, plotData) {
 	return yScale.invert ? extent(allYValues) : Array.from(new Set(allYValues));
 }
 
-// ChartConfig Y scale güncellemesi (örn: pan/zoom, plotData deðiþince vs)
+// ChartConfig Y scale gï¿½ncellemesi (ï¿½rn: pan/zoom, plotData deï¿½iï¿½ince vs)
 export function getChartConfigWithUpdatedYScales(
 	chartConfig,
 	{ plotData, xAccessor, displayXAccessor, fullData },
@@ -164,7 +169,7 @@ export function getChartConfigWithUpdatedYScales(
 	return combine(chartConfig, yDomains);
 }
 
-// Mouse konumundan yakýn item'ý getirir (örn: tooltip vs)
+// Mouse konumundan yakï¿½n item'ï¿½ getirir (ï¿½rn: tooltip vs)
 export function getCurrentItem(xScale, xAccessor, mouseXY, plotData) {
 	if (typeof xScale.invert === "function") {
 		const xValue = xScale.invert(mouseXY[0]);
@@ -176,7 +181,7 @@ export function getCurrentItem(xScale, xAccessor, mouseXY, plotData) {
 	return isDefined(d) ? plotData[d.idx] : plotData[0];
 }
 
-// Mouse konumundan X deðerini bulur
+// Mouse konumundan X deï¿½erini bulur
 export function getXValue(xScale, xAccessor, mouseXY, plotData) {
 	if (typeof xScale.invert === "function") {
 		const xValue = xScale.invert(mouseXY[0]);

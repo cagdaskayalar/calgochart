@@ -1,3 +1,8 @@
+// src/lib/CanvasContainer.js
+// This module defines a CanvasContainer component that manages multiple canvas elements for rendering charts.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// CanvasContainer.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { isDefined, getLogger } from "./utils";

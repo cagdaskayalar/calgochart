@@ -1,3 +1,6 @@
+// src/lib/utils/rebind.js
+// This module provides a utility function to rebind methods from a source object to a target object, allowing for method chaining and dynamic method access.
+// rebind.js
 // copied from https://github.com/d3fc/d3fc-rebind/blob/master/src/rebind.js
 
 function createReboundMethod(target, source, name) {

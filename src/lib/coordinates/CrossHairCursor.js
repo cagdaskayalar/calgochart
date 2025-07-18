@@ -1,3 +1,8 @@
+// src/lib/coordinates/CrossHairCursor.js
+// This module defines a CrossHairCursor component that displays interactive crosshair lines on a chart.
+// It can render both SVG and Canvas versions, updating automatically with zoom, pan, or drag events.
+// CrossHairCursor.js
+
 /**
  * CrossHairCursor
  * ----------------------------------------------------

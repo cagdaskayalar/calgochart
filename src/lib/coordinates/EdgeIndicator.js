@@ -1,4 +1,7 @@
-
+// src/lib/coordinates/EdgeIndicator.js
+// This module defines an EdgeIndicator component that displays indicators at the edges of a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// EdgeIndicator.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

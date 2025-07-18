@@ -1,3 +1,7 @@
+// src/lib/coordinates/index.js
+// This module exports various coordinate components used in chart rendering.
+// It includes components for mouse coordinates, edge indicators, and price coordinates.   
+// index.js
 
 export { default as CrossHairCursor } from "./CrossHairCursor";
 export { default as CurrentCoordinate } from "./CurrentCoordinate";

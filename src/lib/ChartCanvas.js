@@ -1,30 +1,18 @@
-
+// src/lib/ChartCanvas.js
+// This module defines a ChartCanvas component that serves as the main container for rendering charts.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// ChartCanvas.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { extent as d3Extent, min, max } from "d3-array";
 
-import {
-	head,
-	last,
-	isDefined,
-	isNotDefined,
-	clearCanvas,
-	shallowEqual,
-	identity,
-	noop,
-	functor,
-	getLogger,
-} from "./utils";
+import { head, last, isDefined, isNotDefined, clearCanvas, shallowEqual, identity, noop, functor, getLogger } from "./utils";
 
 /* eslint-disable no-unused-vars */
-import {
-	mouseBasedZoomAnchor,
-	lastVisibleItemBasedZoomAnchor,
-	rightDomainBasedZoomAnchor,
-} from "./utils/zoomBehavior";
-/* eslint-enable no-unused-vars */
+import { mouseBasedZoomAnchor, lastVisibleItemBasedZoomAnchor, rightDomainBasedZoomAnchor } from "./utils/zoomBehavior";
 
+/* eslint-enable no-unused-vars */
 import { getNewChartConfig, getChartConfigWithUpdatedYScales, getCurrentCharts, getCurrentItem } from "./utils/ChartDataUtil";
 
 import EventCapture from "./EventCapture";
@@ -36,8 +24,8 @@ const log = getLogger("ChartCanvas");
 
 const CANDIDATES_FOR_RESET = [
 	"seriesName",
-	/* "data",*/
-	/* "xAccessor",*/
+	"data",
+	"xAccessor",
 ];
 
 function shouldResetChart(thisProps, nextProps) {

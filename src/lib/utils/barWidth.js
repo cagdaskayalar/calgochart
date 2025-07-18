@@ -1,3 +1,6 @@
+// src/lib/utils/barWidth.js
+// This module provides functions to calculate bar width based on plot data and time intervals.
+// It includes functions for calculating bar width based on the length of plot data and a time interval, allowing for dynamic bar widths in chart rendering.
 // barWidth.js
 
 import { head } from "../utils";

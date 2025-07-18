@@ -1,5 +1,9 @@
-import { timeFormat, timeFormatDefaultLocale } from "d3-time-format";
+// src/lib/scale/discontinuousTimeScaleProvider.js
+// This module provides a discontinuous time scale provider for charting applications, allowing for custom date handling and formatting.
+// It is used to create a finance discontinuous scale that can handle various time intervals and formats.
+// discontinuousTimeScaleProvider.js
 
+import { timeFormat, timeFormatDefaultLocale } from "d3-time-format";
 import financeDiscontinuousScale from "./financeDiscontinuousScale";
 import { slidingWindow, zipper, identity, isNotDefined } from "../utils";
 import { levelDefinition, defaultFormatters } from "./levels";

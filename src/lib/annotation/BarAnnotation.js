@@ -1,3 +1,8 @@
+// src/lib/annotation/BarAnnotation.js
+// This module defines a BarAnnotation component that renders bar annotations on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// BarAnnotation.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { functor } from "../utils";

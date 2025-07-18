@@ -1,3 +1,8 @@
+// src/lib/axes/Axis.js
+// This module defines an Axis component that renders an axis for a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// Axis.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { forceSimulation, forceX, forceCollide } from "d3-force";

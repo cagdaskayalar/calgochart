@@ -1,3 +1,8 @@
+// src/lib/tooltip/GroupTooltip.js
+// This module defines a GroupTooltip component that displays multiple tooltips in a group format.
+// It allows for flexible layouts, custom formatting, and interaction handling in React applications.
+// GroupTooltip.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { format } from "d3-format";

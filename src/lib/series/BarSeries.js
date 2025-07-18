@@ -1,3 +1,8 @@
+// src/lib/series/BarSeries.js
+// This module defines a BarSeries component that renders bar charts using SVG or canvas.
+// It extends the functionality of StackedBarSeries to support classic bar charts.
+// BarSeries.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import GenericChartComponent from "../GenericChartComponent";

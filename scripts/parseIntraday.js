@@ -1,4 +1,7 @@
-
+// scripts/parseIntraday.js
+// This script processes intraday stock data from a CSV file and converts it into a TSV format
+// It reads the data, transforms the timestamps, and writes the output to a new file.
+// parseIntraday.js
 if (process.argv.length !== 3) throw new Error("Need a ticker as argument")
 const ticker = process.argv[2];
 

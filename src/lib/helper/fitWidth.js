@@ -1,3 +1,8 @@
+// src/lib/helper/fitWidth.js
+// This module provides a higher-order component that wraps a chart component to make it responsive.
+// It measures the dimensions of the parent container and applies them to the wrapped component, ensuring it fits within the available space.
+// fitWidth.js
+
 import React, { useRef, useState, useEffect, forwardRef } from "react";
 
 function getDisplayName(Series) {
@@ -10,7 +15,7 @@ export default function fitWidth(WrappedComponent, withRef = true, minWidth = 10
 		const testCanvasRef = useRef(null);
 		const [state, setState] = useState({ width: null, ratio: 1 });
 
-		// Ölçü ve ratio hesapla
+		// ï¿½lï¿½ï¿½ ve ratio hesapla
 		const getRatio = () => {
 			if (testCanvasRef.current) {
 				const ctx = testCanvasRef.current.getContext("2d");
@@ -26,7 +31,7 @@ export default function fitWidth(WrappedComponent, withRef = true, minWidth = 10
 			return 1;
 		};
 
-		// Ölçü ve oranlarý hesapla, resize'da güncelle
+		// ï¿½lï¿½ï¿½ ve oranlarï¿½ hesapla, resize'da gï¿½ncelle
 		useEffect(() => {
 			function handleResize() {
 				if (!containerRef.current) return;
@@ -48,7 +53,7 @@ export default function fitWidth(WrappedComponent, withRef = true, minWidth = 10
 		const refProps = withRef ? { ref: containerRef } : {};
 
 		if (!state.width) {
-			// Ýlk ölçüm için dummy canvas render
+			// ï¿½lk ï¿½lï¿½ï¿½m iï¿½in dummy canvas render
 			return (
 				<div {...refProps}>
 					<canvas ref={testCanvasRef} style={{ display: "block" }} />

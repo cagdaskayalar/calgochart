@@ -1,3 +1,8 @@
+// src/lib/annotation/index.js
+// This module exports various annotation components used in chart rendering.
+// It includes components for bar annotations, label annotations, SVG path annotations, and the main annotation component.
+// index.js
+
 export { default as Annotate } from "./Annotate";
 export { default as LabelAnnotation } from "./LabelAnnotation";
 export { default as SvgPathAnnotation } from "./SvgPathAnnotation";

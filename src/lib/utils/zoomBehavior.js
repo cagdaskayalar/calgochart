@@ -1,10 +1,12 @@
-// utils/zoomBehavior.js
+// src/lib/utils/zoomBehavior.js
+// This module provides zoom behavior utilities for chart rendering, including mouse-based and domain-based zoom anchors and zooming based on the last visible item.
+// zoomBehavior.js
 
 import { getCurrentItem } from "./ChartDataUtil";
 import { last } from "./index";
 
 /**
- * Mouse tabanlý zoom anchor fonksiyonu.
+ * Mouse tabanlï¿½ zoom anchor fonksiyonu.
  * @param {Object} params
  * @param {Function} params.xScale
  * @param {Function} params.xAccessor
@@ -25,7 +27,7 @@ export function mouseBasedZoomAnchor({
 }
 
 /**
- * Görünen son item'a göre zoom anchor.
+ * Gï¿½rï¿½nen son item'a gï¿½re zoom anchor.
  * @param {Object} params
  * @returns {*}
  */
@@ -41,7 +43,7 @@ export function lastVisibleItemBasedZoomAnchor({
 }
 
 /**
- * Domain'in sað (end) deðerine göre zoom anchor.
+ * Domain'in saï¿½ (end) deï¿½erine gï¿½re zoom anchor.
  * @param {Object} params
  * @returns {*}
  */

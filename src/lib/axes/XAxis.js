@@ -1,3 +1,8 @@
+// src/lib/axes/XAxis.js
+// This module defines an XAxis component that renders the X axis for a chart.
+// It supports zoom functionality and integrates with the chart's context for dynamic updates.
+// XAxis.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Axis from "./Axis";

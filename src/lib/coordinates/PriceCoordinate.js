@@ -1,4 +1,7 @@
-
+// src/lib/coordinates/PriceCoordinate.js
+// This module defines a PriceCoordinate component that displays price coordinates on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// PriceCoordinate.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

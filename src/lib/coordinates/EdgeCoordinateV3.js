@@ -1,4 +1,7 @@
-
+// src/lib/coordinates/EdgeCoordinateV3.js
+// This module defines an EdgeCoordinateV3 component that displays coordinates at the edges of a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// EdgeCoordinateV3.js
 
 import React from "react";
 

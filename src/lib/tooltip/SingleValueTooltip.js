@@ -1,3 +1,8 @@
+// src/lib/tooltip/SingleValueTooltip.js
+// This module defines a SingleValueTooltip component that displays a single value tooltip for chart data.
+// It allows for customizable display formats, labels, and styles, and is optimized for performance using a PureComponent approach.
+// SingleValueTooltip.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { format } from "d3-format";

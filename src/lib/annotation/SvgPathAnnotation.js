@@ -1,3 +1,8 @@
+// src/lib/annotation/SvgPathAnnotation.js
+// This module defines an SvgPathAnnotation component that renders SVG path annotations on a chart.
+// It supports customization of appearance and behavior, including click events and tooltips.
+// SvgPathAnnotation.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { functor } from "../utils";

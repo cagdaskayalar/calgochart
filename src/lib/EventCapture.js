@@ -1,3 +1,8 @@
+// src/lib/EventCapture.js
+// This module defines an EventCapture component that captures mouse and touch events on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// EventCapture.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { select, pointer } from "d3-selection";

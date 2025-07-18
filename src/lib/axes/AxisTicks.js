@@ -1,3 +1,8 @@
+// src/lib/axes/AxisTicks.js
+// This module defines an AxisTicks component that renders ticks for a chart axis.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// AxisTicks.js
+
 import React from "react";
 import PropTypes from "prop-types";
 

@@ -1,3 +1,8 @@
+// src/lib/axes/YAxis.js
+// This module defines a YAxis component that renders the Y axis for a chart.
+// It supports zoom functionality and integrates with the chart's context for dynamic updates.
+// YAxis.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Axis from "./Axis";

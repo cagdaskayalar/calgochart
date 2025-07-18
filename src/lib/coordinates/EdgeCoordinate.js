@@ -1,3 +1,8 @@
+// src/lib/coordinates/EdgeCoordinate.js
+// This module defines an EdgeCoordinate component that displays coordinates at the edges of a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// EdgeCoordinate.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { hexToRGBA, isDefined } from "../utils";

@@ -1,3 +1,8 @@
+// src/lib/series/ScatterSeries.js
+// This module defines a ScatterSeries component that renders scatter plots using SVG or canvas.
+// It supports customizable markers, styles, and rendering options, making it suitable for various charting applications.
+// ScatterSeries.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { nest as d3Nest } from "d3-collection";

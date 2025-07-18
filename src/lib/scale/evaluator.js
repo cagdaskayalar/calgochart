@@ -1,6 +1,9 @@
-import {
-	head, last, getClosestItemIndexes, isDefined, isNotDefined, getLogger,
-} from "../utils";
+// src/lib/scale/evaluator.js
+// This module provides an evaluator for filtering and processing data based on the x-axis scale and domain in charting applications.
+// It includes functions to handle data filtering, domain clamping, and determining the number of points that can be displayed based on the available width and thresholds.
+// evaluator.js
+
+import { head, last, getClosestItemIndexes, isDefined, isNotDefined, getLogger } from "../utils";
 
 const log = getLogger("evaluator");
 
@@ -69,6 +72,7 @@ function extentsWrapper(useWholeData, clamp, pointsPerPxThreshold, minPointsPerP
 function canShowTheseManyPeriods(width, arrayLength, maxThreshold, minThreshold) {
 	return arrayLength > showMinThreshold(width, minThreshold) && arrayLength < showMaxThreshold(width, maxThreshold);
 }
+
 const showMinThreshold = (width, threshold) => Math.max(1, Math.ceil(width * threshold));
 const showMaxThreshold = (width, threshold) => Math.floor(width * threshold);
 const showMax = (width, threshold) => Math.floor(showMaxThreshold(width, threshold) * 0.97);

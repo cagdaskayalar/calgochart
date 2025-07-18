@@ -1,3 +1,8 @@
+// src/lib/coordinates/Cursor.js
+// This module defines a Cursor component that displays crosshair lines on a chart.
+// It can render both SVG and Canvas versions, updating automatically with zoom, pan, or drag events.
+// Cursor.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import GenericComponent, { getMouseCanvas } from "../GenericComponent";

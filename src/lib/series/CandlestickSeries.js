@@ -1,3 +1,8 @@
+// src/lib/series/CandlestickSeries.js
+// This module defines a CandlestickSeries component that renders candlestick charts using SVG or canvas.
+// It supports customizable styles, widths, and class names for wicks and candles, and allows for flexible rendering in React applications.
+// CandlestickSeries.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { nest } from "d3-collection";

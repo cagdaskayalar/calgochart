@@ -1,3 +1,8 @@
+// src/lib/series/StraightLine.js
+// This module defines a StraightLine component that renders a straight line on a chart, either horizontally or vertically, using SVG or canvas.
+// It supports customizable styles, widths, and class names, and allows for flexible rendering in React applications.
+// StraightLine.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { hexToRGBA, isDefined, isNotDefined, strokeDashTypes, getStrokeDasharray } from "../utils";

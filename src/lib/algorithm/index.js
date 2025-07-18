@@ -1,3 +1,8 @@
+// src/lib/algorithm/index.js
+// This module exports an algorithm that processes data using a sliding window approach.
+// It allows customization of the window size, accumulator function, and merge function for dynamic data processing.
+// index.js
+
 import { merge, slidingWindow, identity } from "../utils";
 
 const algorithm = function() {

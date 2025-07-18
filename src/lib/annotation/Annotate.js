@@ -1,4 +1,7 @@
-
+// src/lib/annotation/Annotate.js
+// This module defines an Annotate component that renders annotations on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// Annotate.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

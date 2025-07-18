@@ -1,4 +1,8 @@
 // src/lib/GenericComponent.js
+// This module defines a GenericComponent that implements a generic chart component in React.
+// It handles rendering logic, event handling, and context management for charts.
+// GenericComponent.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { isNotDefined, isDefined, noop, functor, identity } from "./utils";

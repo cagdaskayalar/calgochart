@@ -1,3 +1,8 @@
+// src/lib/series/OHLCSeries.js
+// This module defines an OHLCSeries component that renders OHLC (Open, High, Low, Close) charts using SVG or canvas.
+// It supports customizable styles, widths, and class names for OHLC bars, and allows for flexible rendering in React applications.
+// OHLCSeries.js
+
 import { nest } from "d3-collection";
 import React, { Component } from "react";
 import PropTypes from "prop-types";

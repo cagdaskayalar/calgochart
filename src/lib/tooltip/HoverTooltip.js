@@ -1,3 +1,8 @@
+// src/lib/tooltip/HoverTooltip.js
+// This module defines a HoverTooltip component that displays tooltips on hover over chart elements.
+// It supports both SVG and canvas rendering, customizable styles, and dynamic positioning based on chart data.
+// HoverTooltip.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import GenericComponent from "../GenericComponent";

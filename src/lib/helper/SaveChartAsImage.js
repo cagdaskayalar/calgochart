@@ -1,3 +1,8 @@
+// src/lib/helper/SaveChartAsImage.js
+// This module provides functionality to save a chart as an image in various formats.
+// It uses the `save-svg-as-png` library to convert an SVG chart into a PNG image.
+// SaveChartAsImage.js
+
 import saveAsPng from "save-svg-as-png";
 import { isDefined } from "../utils";
 

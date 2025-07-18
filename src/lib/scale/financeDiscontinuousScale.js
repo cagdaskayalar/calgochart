@@ -1,4 +1,7 @@
-
+// src/lib/scale/financeDiscontinuousScale.js
+// This module defines a finance discontinuous scale for charting applications, allowing for custom date handling and formatting.
+// It is used to create a scale that can handle various time intervals and formats, particularly for financial data.
+// financeDiscontinuousScale.js
 
 import { set, map } from "d3-collection";
 import { ascending } from "d3-array";

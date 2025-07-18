@@ -1,3 +1,5 @@
+// src/lib/utils/strokeDasharray.js
+// This module provides utilities for stroke dash patterns used in chart rendering.
 // strokeDasharray.js
 
 export const strokeDashTypes = [

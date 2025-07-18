@@ -1,3 +1,8 @@
+// src/lib/tooltip/ToolTipText.js
+// This module defines a ToolTipText component that serves as a wrapper for SVG <text> elements used in tooltips.
+// It allows for customizable font family, size, and other SVG text properties, making it reusable across different tooltip implementations.
+// ToolTipText.js
+
 import React from "react";
 import PropTypes from "prop-types";
 

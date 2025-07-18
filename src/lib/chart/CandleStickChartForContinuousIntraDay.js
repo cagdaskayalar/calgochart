@@ -1,3 +1,8 @@
+// src/lib/chart/CandleStickChartForContinuousIntraDay.js
+// This module defines a CandleStickChartForContinuousIntraDay component that renders a candlestick chart for continuous intra-day data.
+// It uses D3 for scaling and formatting, and includes various chart components such as axes,
+// series, and coordinates. The chart supports both SVG and hybrid rendering modes.
+// CandleStickChartForContinuousIntraDay.js
 
 import React from "react";
 import PropTypes from "prop-types";

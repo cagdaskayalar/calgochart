@@ -1,3 +1,8 @@
+// src/lib/series/LineSeries.js
+// This module defines a LineSeries component that renders line charts using SVG or canvas.
+// It supports customizable styles, widths, and class names, and allows for flexible rendering in React applications.
+// LineSeries.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { line as d3Line } from "d3-shape";

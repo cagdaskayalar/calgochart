@@ -1,4 +1,7 @@
-
+// src/lib/coordinates/MouseCoordinateX.js
+// This module defines a MouseCoordinateX component that displays the X coordinate of the mouse position on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// MouseCoordinateX.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

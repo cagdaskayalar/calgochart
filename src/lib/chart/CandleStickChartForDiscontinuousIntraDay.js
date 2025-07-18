@@ -1,3 +1,8 @@
+// src/lib/chart/CandleStickChartForDiscontinuousIntraDay.js
+// This module defines a CandleStickChartForDiscontinuousIntraDay component that renders a candlestick chart for intra-day data with discontinuous time scales.
+// It uses D3 for scaling and formatting, and includes various chart components such as axes, 
+// series, and coordinates. The chart supports both SVG and hybrid rendering modes.
+// CandleStickChartForDiscontinuousIntraDay.js
 
 import React from "react";
 import PropTypes from "prop-types";

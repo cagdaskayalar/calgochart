@@ -1,3 +1,6 @@
+// src/lib/utils/accumulatingWindow.js
+// This module provides an accumulating window function that applies a custom accumulator over a sliding window of data points.
+// It allows for dynamic window sizes, custom source data extraction, and handling of undefined values.
 // accumulatingWindow.js
 
 /*

@@ -1,3 +1,8 @@
+// src/lib/BackgroundText.js
+// This module defines a BackgroundText component that renders text on a chart background.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// BackgroundText.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import PureComponent from "./utils/PureComponent";

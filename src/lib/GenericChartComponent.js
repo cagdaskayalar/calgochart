@@ -1,4 +1,11 @@
-//src/lib/GenericChartComponent.js
+// src/lib/GenericChartComponent.js
+// This file is part of CalgoChart, a charting library for React.
+// It defines a GenericChartComponent that serves as a base for creating chart components.	
+// The component handles rendering logic, event handling, and context management for charts.
+// This module defines a GenericChartComponent that serves as a base for creating chart components.
+// It handles rendering logic, event handling, and context management for charts.
+// GenericChartComponent.js
+
 import PropTypes from "prop-types";
 import GenericComponent from "./GenericComponent";
 import { isDefined, find } from "./utils";

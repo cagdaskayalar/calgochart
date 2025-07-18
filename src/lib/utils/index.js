@@ -1,3 +1,8 @@
+// src/lib/utils/index.js
+// This module exports various utility functions and components used throughout the application.
+// It includes functions for data manipulation, rendering optimizations, and other common tasks.
+// index.js
+
 import { scaleOrdinal } from "d3-scale";
 import { schemeCategory10 } from "d3-scale-chromatic";
 import { bisector } from "d3-array";

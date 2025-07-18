@@ -1,3 +1,8 @@
+// src/lib/Chart.js
+// This module defines a Chart component that serves as a container for rendering charts.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// Chart.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import { scaleLinear } from "d3-scale";
@@ -56,7 +61,7 @@ class Chart extends PureComponent {
 	}
 }
 
-// PropTypes sistemi ayný kalsýn
+// PropTypes sistemi aynï¿½ kalsï¿½n
 Chart.propTypes = {
 	height: PropTypes.number,
 	origin: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
@@ -87,7 +92,7 @@ Chart.defaultProps = {
 	onContextMenu: noop,
 };
 
-// Modern context tanýmý (legacy ile uyumlu)
+// Modern context tanï¿½mï¿½ (legacy ile uyumlu)
 Chart.contextTypes = {
 	chartConfig: PropTypes.array,
 	subscribe: PropTypes.func,

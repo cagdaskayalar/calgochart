@@ -1,3 +1,24 @@
+// src/lib/utils/shallowEqual.js
+// A utility function to perform a shallow comparison of two objects.
+// This implementation is inspired by the is-equal-shallow library by Jon Schlinkert.
+// It checks if two values are equal, handling Date objects specifically and ensuring that both objects have the same keys.
+// This module is used to optimize rendering in React applications by preventing unnecessary updates.
+// It is particularly useful in components that extend React.PureComponent, where shallow comparison of props, state, and context is required.
+// It is a lightweight alternative to deep equality checks, focusing on performance and simplicity.
+// This module is part of the CalgoChart library, which provides utilities for chart rendering and data visualization.
+// It is designed to be used in conjunction with other utility functions and components within the library.
+// It is a standalone utility that can be imported and used in various parts of the CalgoChart library or in user applications.
+// It is not intended to be used as a standalone library, but rather as a utility within the CalgoChart ecosystem.
+// It is compatible with modern JavaScript environments and can be used in both Node.js and browser contexts.
+// It is licensed under the MIT License, allowing for free use, modification, and distribution.
+// It is maintained as part of the CalgoChart project, which is an open-source project available on GitHub.
+// This module is inspired by the is-equal-shallow library, which provides a similar shallow equality check.
+// It is designed to be efficient and lightweight, focusing on performance for React applications.
+// It is a utility function that can be used in various contexts where shallow equality checks are needed.
+// It is a fundamental utility that underpins the performance optimizations in the CalgoChart library		
+// and is essential for ensuring that components only re-render when necessary.
+// shallowEqual.js
+
 // https://github.com/jonschlinkert/is-equal-shallow/
 
 /*

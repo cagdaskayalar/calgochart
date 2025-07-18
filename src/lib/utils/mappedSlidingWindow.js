@@ -1,3 +1,8 @@
+// src/lib/utils/mappedSlidingWindow.js
+// This module provides a mapped sliding window function that applies an accumulator function over a sliding window of data.
+// It allows for dynamic window sizes, custom source data extraction, and handling of undefined values.
+// mappedSlidingWindow.js
+
 import noop from "./noop";
 import identity from "./identity";
 import { functor } from "./index";
@@ -49,7 +54,7 @@ export default function mappedSlidingWindow(opts = {}) {
 		return result;
 	};
 
-	// Parametreleri fonksiyon üzerinden deðiþtirmek için getter/setter pattern:
+	// Parametreleri fonksiyon ï¿½zerinden deï¿½iï¿½tirmek iï¿½in getter/setter pattern:
 	fn.undefinedValue = (x) => x === undefined ? undefinedValue : (opts.undefinedValue = x, fn);
 	fn.windowSize = (x) => x === undefined ? windowSize : (opts.windowSize = x, fn);
 	fn.accumulator = (x) => x === undefined ? accumulator : (opts.accumulator = x, fn);

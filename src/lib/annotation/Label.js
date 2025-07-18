@@ -1,4 +1,7 @@
-
+// src/lib/annotation/Label.js
+// This module defines a Label component that renders text labels on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// Label.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

@@ -1,4 +1,7 @@
-
+// src/lib/coordinates/MouseCoordinateXV2.js
+// This module defines a MouseCoordinateXV2 component that displays the X coordinate of the mouse position on a chart.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// MouseCoordinateXV2.js
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

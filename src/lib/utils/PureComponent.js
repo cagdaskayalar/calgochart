@@ -1,4 +1,6 @@
-
+// src/lib/utils/PureComponent.js
+// This module defines a PureComponent that implements a shallow comparison for props, state, and context to optimize rendering in React applications.
+// PureComponent.js
 
 import React from "react";
 import shallowEqual from "./shallowEqual";

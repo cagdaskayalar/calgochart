@@ -1,3 +1,8 @@
+// src/lib/scale/levels.js
+// This module defines the tick levels and formatters for D3 time scales, specifically tailored for the Turkish locale.
+// It includes functions to determine the appropriate tick level based on the date properties and provides default formatters for each level.
+// levels.js
+
 // D3 time scale tick levels and formatters for Turkish locale
 
 export const levelDefinition = [

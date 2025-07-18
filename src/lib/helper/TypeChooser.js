@@ -1,3 +1,7 @@
+// src/lib/helper/TypeChooser.js
+// This module provides a TypeChooser component that allows users to select between different chart types (e.g., SVG or hybrid).
+// TypeChooser.js
+
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 

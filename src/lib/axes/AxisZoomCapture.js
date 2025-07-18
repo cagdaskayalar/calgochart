@@ -1,3 +1,8 @@
+// src/lib/axes/AxisZoomCapture.js
+// This module defines an AxisZoomCapture component that captures mouse and touch events for zooming functionality on a chart axis.
+// It supports both SVG and Canvas rendering, allowing customization of appearance and behavior.
+// AxisZoomCapture.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { select, pointer, pointers } from "d3-selection";

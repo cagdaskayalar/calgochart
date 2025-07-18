@@ -1,4 +1,7 @@
-
+// src/lib/tooltip/OHLCTooltip.js
+// This module defines an OHLCTooltip component that displays Open, High, Low, Close, and Volume data in a tooltip format.
+// It supports custom formatting for each data point and allows for flexible rendering of tooltip content in React applications.
+// OHLCTooltip.js	
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";

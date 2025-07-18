@@ -1,3 +1,8 @@
+// src/lib/series/StackedBarSeries.js
+// This module defines a StackedBarSeries component that renders stacked bar charts using SVG or canvas.
+// It supports customizable styles, widths, and class names for bars, and allows for flexible rendering in React applications.
+// StackedBarSeries.js
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { nest as d3Nest } from "d3-collection";
@@ -58,7 +63,7 @@ StackedBarSeries.defaultProps = {
 	swapScales: false,
 };
 
-// ---------- YARDIMCI FONKSÝYONLAR ----------
+// ---------- YARDIMCI FONKSï¿½YONLAR ----------
 
 export const identityStack = () => {
 	let keys = [];

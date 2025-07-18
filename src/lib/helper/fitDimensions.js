@@ -1,3 +1,8 @@
+// src/lib/helper/fitDimensions.js
+// This module provides a higher-order component that wraps a chart component to make it responsive.
+// It measures the dimensions of the parent container and applies them to the wrapped component, ensuring it fits within the available space.
+// fitDimensions.js
+
 import React, { useRef, useEffect, useState, forwardRef } from "react";
 import { isDefined } from "../utils";
 
@@ -54,7 +59,7 @@ export default function fitDimensions(WrappedComponent, config = {}) {
 			// eslint-disable-next-line
 		}, [forcedWidth, forcedHeight, forcedRatio]);
 
-		// Ýlk render: önce test canvas göster, sonra ölçüp WrappedComponent render
+		// ï¿½lk render: ï¿½nce test canvas gï¿½ster, sonra ï¿½lï¿½ï¿½p WrappedComponent render
 		if (!dimensions.width || !dimensions.height) {
 			return (
 				<div ref={containerRef}>

@@ -1,4 +1,7 @@
-// merge.js - Modern ve hatasýz
+// src/lib/utils/merge.js
+// This module provides a merge function that applies an algorithm to an array and merges the result back into the source array using a specified merge function.
+// It allows for dynamic algorithm selection, merging behavior, and handling of undefined values.
+// merge.js
 
 import identity from "./identity";
 import zipper from "./zipper";
